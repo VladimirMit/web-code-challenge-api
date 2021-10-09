@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Cognizant.CodeChallenge.Infrastructure.Database</RootNamespace>
+    <AssemblyName>Cognizant.CodeChallenge.Infrastructure.Database</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cognizant.CodeChallenge.Domain\Cognizant.CodeChallenge.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
