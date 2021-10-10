@@ -12,8 +12,4 @@
     <ProjectReference Include="..\Cognizant.CodeChallenge.Infrasturcture.Database\Cognizant.CodeChallenge.Infrastructure.Database.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Tasks\" />
-  </ItemGroup>
-
 </Project>
