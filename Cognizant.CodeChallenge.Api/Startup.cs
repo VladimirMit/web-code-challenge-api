@@ -1,6 +1,8 @@
-using System.Reflection;
 using Cognizant.CodeChallenge.Application.Features.Participants;
+using Cognizant.CodeChallenge.Application.Services;
+using Cognizant.CodeChallenge.Domain.Services;
 using Cognizant.CodeChallenge.Infrastructure.Database;
+using Cognizant.CodeChallenge.Infrastructure.External.Clients;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using RestSharp;
 
 namespace Cognizant.CodeChallenge.Api
 {
@@ -33,10 +36,15 @@ namespace Cognizant.CodeChallenge.Api
                     optionsBuilder => { optionsBuilder.MigrationsAssembly("Cognizant.CodeChallenge.Api"); });
             });
 
+            services.AddTransient<ICompilerClient, JdoodleClient>();
+            services.AddTransient<ICheckSolutionService, Python3SolutionCheckService>();
+            services.AddTransient<IRestClient, RestClient>();
+
             services.AddMediatR(typeof(Get.Query));
             
             services.AddSwaggerGen(c =>
             {
+                c.CustomSchemaIds(type => type.ToString());
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "web_code_challenge_api", Version = "v1" });
             });
         }

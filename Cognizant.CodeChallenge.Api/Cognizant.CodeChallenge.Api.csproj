@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cognizant.CodeChallenge.Application\Cognizant.CodeChallenge.Application.csproj" />
+    <ProjectReference Include="..\Cognizant.CodeChallenge.Infrastructure.External\Cognizant.CodeChallenge.Infrastructure.External.csproj" />
     <ProjectReference Include="..\Cognizant.CodeChallenge.Infrasturcture.Database\Cognizant.CodeChallenge.Infrastructure.Database.csproj" />
   </ItemGroup>
 

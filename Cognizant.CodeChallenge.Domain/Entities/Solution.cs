@@ -28,5 +28,12 @@ namespace Cognizant.CodeChallenge.Domain.Entities
         public CodeTask Task { get; }
         
         public Participant Participant { get; }
+
+        public void Update(string languageName, string code, Status status)
+        {
+            languageName = languageName;
+            code = code;
+            status = status;
+        }
     }
 }

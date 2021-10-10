@@ -4,6 +4,7 @@
     {
         New,
         Error,
+        FailedToExecute,
         Success
     }
 }

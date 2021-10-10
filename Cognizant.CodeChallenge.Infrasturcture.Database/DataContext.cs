@@ -12,6 +12,9 @@ namespace Cognizant.CodeChallenge.Infrastructure.Database
         
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Solution> Solutions { get; set; }
+        
+        //TODO fixnaming
+        public DbSet<CodeTask> CodeTask { get; set; }  
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

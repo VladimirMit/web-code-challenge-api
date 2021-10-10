@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Cognizant.CodeChallenge.Domain.Enums;
 
 namespace Cognizant.CodeChallenge.Domain.Entities
 {
@@ -20,5 +22,15 @@ namespace Cognizant.CodeChallenge.Domain.Entities
         public int Id { get; }
         public string UserName { get; }
         public IReadOnlyCollection<Solution> Solutions => _solutions.AsReadOnly();
+
+        public void AddSolution(CodeTask task, string languageName, string code, Status status)
+        {
+            var existingSolution = _solutions.FirstOrDefault(s => s.Task == task);
+
+            if (existingSolution is { })
+                existingSolution.Update(languageName, code, status);
+            else
+                _solutions.Add(new Solution(code, status, languageName, task, this));
+        }
     }
 }

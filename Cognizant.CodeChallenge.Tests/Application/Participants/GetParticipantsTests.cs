@@ -1,8 +1,8 @@
 using NUnit.Framework;
 
-namespace Cognizant.CodeChallenge.Tests
+namespace Cognizant.CodeChallenge.Tests.Application.Participants
 {
-    public class Tests
+    public class GetParticipantsTests
     {
         [SetUp]
         public void Setup()
