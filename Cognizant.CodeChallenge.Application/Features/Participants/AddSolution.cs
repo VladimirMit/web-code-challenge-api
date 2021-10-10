@@ -54,7 +54,7 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
             {
                 var task = await _context.CodeTask.FirstAsync(t => t.Id == request.TaskId, cancellationToken);
                 
-                var status = await _checkSolutionService.Check(request.Code, task.TestCases, cancellationToken);
+                var status = await _checkSolutionService.Check(request.Code, task.TestCases, task.InputType, cancellationToken);
 
                 var participant = await _context.Participants.Include(x => x.Solutions).ThenInclude(x => x.Task)
                     .FirstAsync(p => p.Id == request.UserId, cancellationToken);

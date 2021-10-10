@@ -19,21 +19,21 @@ namespace Cognizant.CodeChallenge.Domain.Entities
 
         public int Id { get; }
         
-        public string LanguageName { get; }
+        public string LanguageName { get; private set; }
 
-        public string Code { get; }
+        public string Code { get; private set; }
 
-        public Status Status { get; }
-        
+        public Status Status { get; private set; }
+
         public CodeTask Task { get; }
         
         public Participant Participant { get; }
 
         public void Update(string languageName, string code, Status status)
         {
-            languageName = languageName;
-            code = code;
-            status = status;
+            LanguageName = languageName;
+            Code = code;
+            Status = status;
         }
     }
 }

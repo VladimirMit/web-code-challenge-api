@@ -27,6 +27,17 @@ namespace Cognizant.CodeChallenge.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder
+                            .WithOrigins("*") //TODO from config
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
 
             services.AddControllers();
 
@@ -58,6 +69,8 @@ namespace Cognizant.CodeChallenge.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "web_code_challenge_api v1"));
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 

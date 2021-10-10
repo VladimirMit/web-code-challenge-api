@@ -1,6 +1,8 @@
 ﻿using Cognizant.CodeChallenge.Domain.Entities;
+using Cognizant.CodeChallenge.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cognizant.CodeChallenge.Infrastructure.Database.EntityConfigurations
 {
@@ -12,6 +14,7 @@ namespace Cognizant.CodeChallenge.Infrastructure.Database.EntityConfigurations
 
             builder.Property(ct => ct.Name);
             builder.Property(ct => ct.Description);
+            builder.Property(ct => ct.InputType).HasConversion(new EnumToStringConverter<InputType>());
 
             builder.OwnsMany(ct => ct.TestCases, onb =>
             {

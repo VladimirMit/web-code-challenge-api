@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Cognizant.CodeChallenge.Api.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Cognizant.CodeChallenge.Application.Features.Participants;
@@ -24,9 +25,11 @@ namespace Cognizant.CodeChallenge.Api.Controllers
         }
 
         [HttpPost("{id}/solution")]
-        public Task<AddSolution.Response> AddSolution(int id, [FromBody]AddSolution.Command command, CancellationToken cancellationToken)
+        public Task<AddSolution.Response> AddSolution(int id, [FromBody] CreateSolutionDto dto,
+            CancellationToken cancellationToken)
         {
-            return _mediator.Send(command, cancellationToken);
+            return _mediator.Send(new AddSolution.Command(id, dto.TaskId, dto.Code, dto.LanguageName),
+                cancellationToken);
         }
 
         [HttpGet("{id}/solution")]

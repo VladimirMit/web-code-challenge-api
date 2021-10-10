@@ -24,11 +24,11 @@ namespace Cognizant.CodeChallenge.Application.Features.Tasks
         
         public class Response
         {
-            public ICollection<TaskInfo> Result { get; }
+            public ICollection<TaskInfo> Tasks { get; }
 
-            public Response(ICollection<TaskInfo> result)
+            public Response(ICollection<TaskInfo> tasks)
             {
-                Result = result;
+                Tasks = tasks;
             }
         }
         

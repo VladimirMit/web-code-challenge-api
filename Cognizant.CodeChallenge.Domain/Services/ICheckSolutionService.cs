@@ -8,6 +8,6 @@ namespace Cognizant.CodeChallenge.Domain.Services
 {
     public interface ICheckSolutionService
     {
-        public Task<Status> Check(string code, IReadOnlyCollection<CodeTaskTestCase> testCases, CancellationToken cancellationToken);
+        public Task<Status> Check(string code, IReadOnlyCollection<CodeTaskTestCase> testCases, InputType inputType, CancellationToken cancellationToken);
     }
 }
