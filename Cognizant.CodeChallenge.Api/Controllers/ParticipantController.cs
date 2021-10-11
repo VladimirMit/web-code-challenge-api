@@ -24,6 +24,12 @@ namespace Cognizant.CodeChallenge.Api.Controllers
             return _mediator.Send(new Get.Query(top), cancellationToken);
         }
 
+        [HttpPost]
+        public Task<int> Post([FromBody] CreateParticipantDto dto, CancellationToken cancellationToken)
+        {
+            return _mediator.Send(new CreateParticipant.Query(dto.Name), cancellationToken);
+        }
+
         [HttpPost("{id}/solution")]
         public Task<AddSolution.Response> AddSolution(int id, [FromBody] CreateSolutionDto dto,
             CancellationToken cancellationToken)

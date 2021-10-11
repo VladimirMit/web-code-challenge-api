@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Cognizant.CodeChallenge.Domain.Entities;
+using Cognizant.CodeChallenge.Domain.Enums;
 using Cognizant.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -23,11 +24,11 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
 
         public class Response
         {
-            public IReadOnlyCollection<Solution> Solutions { get; }
+            public IReadOnlyCollection<ParticipantToSolution> Solutions { get; }
 
-            public Response(IReadOnlyCollection<Solution> solutions)
+            public Response(IEnumerable<ParticipantToSolution> solutions)
             {
-                Solutions = solutions;
+                Solutions = solutions.ToList().AsReadOnly();
             }
         }
 
@@ -42,11 +43,20 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
 
             public async Task<Response> Handle(Query request, CancellationToken cancellationToken)
             {
-                var personSolutions = await _context.Participants.Select(p => new {p.Id, p.Solutions})
+                var personSolutions = await _context.Participants
+                    .Select(x => new
+                        {x.Id, Solutions = x.Solutions.Select(s => new ParticipantToSolution { TaskId = s.Task.Id, Code = s.Code, Status = s.Status})})
                     .FirstAsync(p => p.Id == request.Id, cancellationToken);
 
                 return new Response(personSolutions.Solutions);
             }
+        }
+
+        public class ParticipantToSolution
+        {
+            public string Code { get; set; }
+            public int TaskId { get; set; }
+            public Status Status { get; set; }
         }
     }
 }
