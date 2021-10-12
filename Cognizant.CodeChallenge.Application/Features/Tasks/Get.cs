@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Cognizant.CodeChallenge.Application.Features.Tasks.Models;
 using Cognizant.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -56,12 +57,6 @@ namespace Cognizant.CodeChallenge.Application.Features.Tasks
 
                 return new Response(result);
             }
-        }
-        public class TaskInfo
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string Description { get; set; }
         }
     }
 }

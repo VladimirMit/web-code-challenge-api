@@ -2,8 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Domain.Entities;
-using Cognizant.CodeChallenge.Domain.Enums;
+using Cognizant.CodeChallenge.Application.Features.Participants.Models;
 using Cognizant.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -50,13 +49,6 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
 
                 return new Response(personSolutions.Solutions);
             }
-        }
-
-        public class ParticipantToSolution
-        {
-            public string Code { get; set; }
-            public int TaskId { get; set; }
-            public Status Status { get; set; }
         }
     }
 }

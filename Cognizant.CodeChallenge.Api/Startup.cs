@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using Cognizant.CodeChallenge.Application.Features.Participants;
 using Cognizant.CodeChallenge.Application.Services;
-using Cognizant.CodeChallenge.Domain.Services;
 using Cognizant.CodeChallenge.Infrastructure.Database;
 using Cognizant.CodeChallenge.Infrastructure.External.Clients;
 using MediatR;
@@ -48,8 +48,19 @@ namespace Cognizant.CodeChallenge.Api
             });
 
             services.AddTransient<ICompilerClient, JdoodleClient>();
-            services.AddTransient<ICheckSolutionService, Python3SolutionCheckService>();
+            services.AddTransient<Python3SolutionCheckService>();
             services.AddTransient<IRestClient, RestClient>();
+
+            services.AddTransient<ServiceResolver>(serviceProvider => key =>
+            {
+                switch (key)
+                {
+                    case "python3":
+                        return serviceProvider.GetService<Python3SolutionCheckService>();
+                    default:
+                        throw new KeyNotFoundException();
+                }
+            });
 
             services.AddMediatR(typeof(Get.Query));
             

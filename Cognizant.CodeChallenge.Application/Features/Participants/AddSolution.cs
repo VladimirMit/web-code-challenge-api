@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Cognizant.CodeChallenge.Application.Services;
 using Cognizant.CodeChallenge.Domain.Enums;
-using Cognizant.CodeChallenge.Domain.Services;
 using Cognizant.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -42,19 +42,20 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
         public class Handler : IRequestHandler<Command, Response>
         {
             private readonly DataContext _context;
-            private readonly ICheckSolutionService _checkSolutionService;
+            private readonly ServiceResolver _checkServiceResolver;
 
-            public Handler(DataContext context, ICheckSolutionService checkSolutionService)
+            public Handler(DataContext context, ServiceResolver checkServiceResolver)
             {
                 _context = context;
-                _checkSolutionService = checkSolutionService;
+                _checkServiceResolver = checkServiceResolver;
             }
             
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
                 var task = await _context.CodeTask.FirstAsync(t => t.Id == request.TaskId, cancellationToken);
                 
-                var status = await _checkSolutionService.Check(request.Code, task.TestCases, task.InputType, cancellationToken);
+                //TODO Async integration
+                var status = await _checkServiceResolver(request.LanguageName).Check(request.Code, task.TestCases, task.InputType, cancellationToken);
 
                 var participant = await _context.Participants.Include(x => x.Solutions).ThenInclude(x => x.Task)
                     .FirstAsync(p => p.Id == request.UserId, cancellationToken);
