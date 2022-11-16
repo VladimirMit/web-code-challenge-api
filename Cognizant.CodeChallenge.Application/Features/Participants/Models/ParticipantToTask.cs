@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Cognizant.CodeChallenge.Application.Features.Participants
+namespace Application.CodeChallenge.Application.Features.Participants.Models
 {
     public class ParticipantToTask
     {

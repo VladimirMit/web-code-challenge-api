@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Domain.Enums;
-using Cognizant.CodeChallenge.Domain.Services;
-using Cognizant.CodeChallenge.Domain.ValueObjects;
+using Application.CodeChallenge.Domain.Enums;
+using Application.CodeChallenge.Domain.Services;
+using Application.CodeChallenge.Domain.ValueObjects;
 using Microsoft.Extensions.Logging;
 
-namespace Cognizant.CodeChallenge.Application.Services
+namespace Application.CodeChallenge.Application.Services
 {
     public class Python3SolutionCheckService : BaseSolutionCheckService, ICheckSolutionService
     {

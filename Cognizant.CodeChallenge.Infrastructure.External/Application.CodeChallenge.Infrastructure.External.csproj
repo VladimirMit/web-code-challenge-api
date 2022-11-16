@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cognizant.CodeChallenge.Application\Cognizant.CodeChallenge.Application.csproj" />
+    <ProjectReference Include="..\Cognizant.CodeChallenge.Application\Application.CodeChallenge.Application.csproj" />
   </ItemGroup>
 
 </Project>

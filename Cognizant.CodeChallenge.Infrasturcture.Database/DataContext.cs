@@ -1,8 +1,8 @@
-﻿using Cognizant.CodeChallenge.Domain.Entities;
-using Cognizant.CodeChallenge.Infrastructure.Database.EntityConfigurations;
+﻿using Application.CodeChallenge.Domain.Entities;
+using Application.CodeChallenge.Infrastructure.Database.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cognizant.CodeChallenge.Infrastructure.Database
+namespace Application.CodeChallenge.Infrastructure.Database
 {
     public class DataContext : DbContext
     {

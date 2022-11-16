@@ -1,12 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Application.Services;
-using Cognizant.CodeChallenge.Domain.Enums;
-using Cognizant.CodeChallenge.Infrastructure.Database;
+using Application.CodeChallenge.Application.Services;
+using Application.CodeChallenge.Domain.Enums;
+using Application.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cognizant.CodeChallenge.Application.Features.Participants
+namespace Application.CodeChallenge.Application.Features.Participants
 {
     public class AddSolution
     {
@@ -53,11 +53,13 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
                 var task = await _context.CodeTask.FirstAsync(t => t.Id == request.TaskId, cancellationToken);
-                
-                //TODO Async integration
-                var status = await _checkServiceResolver(request.LanguageName).Check(request.Code, task.TestCases, task.InputType, cancellationToken);
 
-                var participant = await _context.Participants.Include(x => x.Solutions).ThenInclude(x => x.Task)
+                var checkService = _checkServiceResolver(request.LanguageName);
+
+                var status = await checkService.Check(request.Code, task.TestCases, task.InputType, cancellationToken);
+
+                var participant = await _context.Participants
+                    .Include(x => x.Solutions).ThenInclude(x => x.Task)
                     .FirstAsync(p => p.Id == request.UserId, cancellationToken);
 
                 participant.AddSolution(task, request.LanguageName, request.Code, status);

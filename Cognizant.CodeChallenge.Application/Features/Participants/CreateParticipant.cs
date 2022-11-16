@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Domain.Entities;
-using Cognizant.CodeChallenge.Infrastructure.Database;
+using Application.CodeChallenge.Domain.Entities;
+using Application.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cognizant.CodeChallenge.Application.Features.Participants
+namespace Application.CodeChallenge.Application.Features.Participants
 {
     public class CreateParticipant
     {

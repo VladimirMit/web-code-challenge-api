@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Cognizant.CodeChallenge.Api.Migrations
+namespace Application.CodeChallenge.Api.Migrations
 {
     public partial class fixType : Migration
     {

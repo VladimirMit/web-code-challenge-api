@@ -1,8 +1,8 @@
-﻿using Cognizant.CodeChallenge.Domain.ValueObjects;
-using System.Collections.Generic;
-using Cognizant.CodeChallenge.Domain.Enums;
+﻿using System.Collections.Generic;
+using Application.CodeChallenge.Domain.Enums;
+using Application.CodeChallenge.Domain.ValueObjects;
 
-namespace Cognizant.CodeChallenge.Domain.Entities
+namespace Application.CodeChallenge.Domain.Entities
 {
     public class CodeTask : IEntity<int>
     {

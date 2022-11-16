@@ -1,4 +1,4 @@
-﻿namespace Cognizant.CodeChallenge.Domain.ValueObjects
+﻿namespace Application.CodeChallenge.Domain.ValueObjects
 {
     public class CodeTaskTestCase
     {

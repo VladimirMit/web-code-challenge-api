@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cognizant.CodeChallenge.Application.Services
+namespace Application.CodeChallenge.Application.Services
 {
     public interface ICompilerClient
     {

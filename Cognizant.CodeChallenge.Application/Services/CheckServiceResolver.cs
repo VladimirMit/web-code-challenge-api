@@ -1,6 +1,6 @@
-﻿using Cognizant.CodeChallenge.Domain.Services;
+﻿using Application.CodeChallenge.Domain.Services;
 
-namespace Cognizant.CodeChallenge.Application.Services
+namespace Application.CodeChallenge.Application.Services
 {
     public delegate ICheckSolutionService ServiceResolver(string language);
 }

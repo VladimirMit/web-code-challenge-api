@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Application.Features.Tasks.Models;
-using Cognizant.CodeChallenge.Infrastructure.Database;
+using Application.CodeChallenge.Application.Features.Tasks.Models;
+using Application.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cognizant.CodeChallenge.Application.Features.Tasks
+namespace Application.CodeChallenge.Application.Features.Tasks
 {
     public class Get
     {

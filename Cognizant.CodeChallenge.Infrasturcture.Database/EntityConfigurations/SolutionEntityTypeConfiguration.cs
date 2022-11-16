@@ -1,12 +1,12 @@
-﻿using Cognizant.CodeChallenge.Domain.Entities;
-using Cognizant.CodeChallenge.Domain.Enums;
+﻿using Application.CodeChallenge.Domain.Entities;
+using Application.CodeChallenge.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Cognizant.CodeChallenge.Infrastructure.Database.EntityConfigurations
+namespace Application.CodeChallenge.Infrastructure.Database.EntityConfigurations
 {
-    class SolutionEntityTypeConfiguration : IEntityTypeConfiguration<Solution>
+    internal class SolutionEntityTypeConfiguration : IEntityTypeConfiguration<Solution>
     {
         public void Configure(EntityTypeBuilder<Solution> builder)
         {

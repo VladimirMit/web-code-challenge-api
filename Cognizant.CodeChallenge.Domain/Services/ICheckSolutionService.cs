@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Domain.Enums;
-using Cognizant.CodeChallenge.Domain.ValueObjects;
+using Application.CodeChallenge.Domain.Enums;
+using Application.CodeChallenge.Domain.ValueObjects;
 
-namespace Cognizant.CodeChallenge.Domain.Services
+namespace Application.CodeChallenge.Domain.Services
 {
     public interface ICheckSolutionService
     {

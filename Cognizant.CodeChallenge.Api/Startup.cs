@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Cognizant.CodeChallenge.Application.Features.Participants;
-using Cognizant.CodeChallenge.Application.Services;
-using Cognizant.CodeChallenge.Infrastructure.Database;
-using Cognizant.CodeChallenge.Infrastructure.External.Clients;
+using Application.CodeChallenge.Application.Features.Tasks;
+using Application.CodeChallenge.Application.Services;
+using Application.CodeChallenge.Infrastructure.Database;
+using Application.CodeChallenge.Infrastructure.External.Clients;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RestSharp;
 
-namespace Cognizant.CodeChallenge.Api
+namespace Application.CodeChallenge.Api
 {
     public class Startup
     {
@@ -44,11 +44,12 @@ namespace Cognizant.CodeChallenge.Api
             services.AddDbContext<DataContext>(builder =>
             {
                 builder.UseMySQL(Configuration.GetValue<string>("CodeChallengeDbConnectionString"),
-                    optionsBuilder => { optionsBuilder.MigrationsAssembly("Cognizant.CodeChallenge.Api"); });
+                    optionsBuilder => { optionsBuilder.MigrationsAssembly("Application.CodeChallenge.Api"); });
             });
 
             services.AddTransient<ICompilerClient, JdoodleClient>();
             services.AddTransient<Python3SolutionCheckService>();
+            services.AddTransient<NodeJSSolutionCheckService>();
             services.AddTransient<IRestClient, RestClient>();
 
             services.AddTransient<ServiceResolver>(serviceProvider => key =>
@@ -57,6 +58,8 @@ namespace Cognizant.CodeChallenge.Api
                 {
                     case "python3":
                         return serviceProvider.GetService<Python3SolutionCheckService>();
+                    case "nodejs":
+                        return serviceProvider.GetService<NodeJSSolutionCheckService>();
                     default:
                         throw new KeyNotFoundException();
                 }

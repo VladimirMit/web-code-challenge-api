@@ -1,10 +1,10 @@
-﻿using Cognizant.CodeChallenge.Domain.Entities;
+﻿using Application.CodeChallenge.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Cognizant.CodeChallenge.Infrastructure.Database.EntityConfigurations
+namespace Application.CodeChallenge.Infrastructure.Database.EntityConfigurations
 {
-    class ParticipantEntityTypeConfiguration : IEntityTypeConfiguration<Participant>
+    internal class ParticipantEntityTypeConfiguration : IEntityTypeConfiguration<Participant>
     {
         public void Configure(EntityTypeBuilder<Participant> builder)
         {

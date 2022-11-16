@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Application.Features.Participants.Models;
-using Cognizant.CodeChallenge.Infrastructure.Database;
+using Application.CodeChallenge.Application.Features.Participants.Models;
+using Application.CodeChallenge.Infrastructure.Database;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cognizant.CodeChallenge.Application.Features.Participants
+namespace Application.CodeChallenge.Application.Features.Participants
 {
     public class GetSolutions
     {
@@ -44,7 +44,7 @@ namespace Cognizant.CodeChallenge.Application.Features.Participants
             {
                 var personSolutions = await _context.Participants
                     .Select(x => new
-                        {x.Id, Solutions = x.Solutions.Select(s => new ParticipantToSolution { TaskId = s.Task.Id, Code = s.Code, Status = s.Status})})
+                        {x.Id, Solutions = x.Solutions.Select(s => new ParticipantToSolution { TaskId = s.Task.Id, Code = s.Code, Status = s.Status, Language = s.LanguageName})})
                     .FirstAsync(p => p.Id == request.Id, cancellationToken);
 
                 return new Response(personSolutions.Solutions);

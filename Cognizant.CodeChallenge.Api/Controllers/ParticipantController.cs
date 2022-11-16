@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Api.Models;
+using Application.CodeChallenge.Api.Models;
+using Application.CodeChallenge.Application.Features.Participants;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Cognizant.CodeChallenge.Application.Features.Participants;
 
-namespace Cognizant.CodeChallenge.Api.Controllers
+namespace Application.CodeChallenge.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

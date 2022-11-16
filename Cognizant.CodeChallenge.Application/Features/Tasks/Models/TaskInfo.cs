@@ -1,4 +1,4 @@
-﻿namespace Cognizant.CodeChallenge.Application.Features.Tasks.Models
+﻿namespace Application.CodeChallenge.Application.Features.Tasks.Models
 {
     public class TaskInfo
     {

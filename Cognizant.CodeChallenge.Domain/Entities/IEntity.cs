@@ -1,4 +1,4 @@
-﻿namespace Cognizant.CodeChallenge.Domain.Entities
+﻿namespace Application.CodeChallenge.Domain.Entities
 {
     public interface IEntity<T>
     {

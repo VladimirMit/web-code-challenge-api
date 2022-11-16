@@ -1,10 +1,10 @@
-﻿using Cognizant.CodeChallenge.Domain.Enums;
+﻿using Application.CodeChallenge.Domain.Enums;
 
-namespace Cognizant.CodeChallenge.Domain.Entities
+namespace Application.CodeChallenge.Domain.Entities
 {
     public class Solution : IEntity<int>
     {
-        private Solution()
+        public Solution()
         {
         }
         

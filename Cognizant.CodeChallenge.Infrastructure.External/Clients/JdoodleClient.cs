@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Cognizant.CodeChallenge.Application.Services;
+using Application.CodeChallenge.Application.Services;
 using RestSharp;
 
-namespace Cognizant.CodeChallenge.Infrastructure.External.Clients
+namespace Application.CodeChallenge.Infrastructure.External.Clients
 {
     public class JdoodleClient : ICompilerClient
     {

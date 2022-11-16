@@ -1,4 +1,4 @@
-﻿namespace Cognizant.CodeChallenge.Domain.Enums
+﻿namespace Application.CodeChallenge.Domain.Enums
 {
     public enum InputType
     {

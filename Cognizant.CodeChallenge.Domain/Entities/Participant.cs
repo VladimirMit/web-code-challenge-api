@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Cognizant.CodeChallenge.Domain.Enums;
+using Application.CodeChallenge.Domain.Enums;
 
-namespace Cognizant.CodeChallenge.Domain.Entities
+namespace Application.CodeChallenge.Domain.Entities
 {
     public class Participant : IEntity<int>
     {

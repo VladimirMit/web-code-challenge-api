@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Cognizant.CodeChallenge.Tests.Application.Participants
+namespace Application.CodeChallenge.Tests.Application.Participants
 {
     public class GetParticipantsTests
     {

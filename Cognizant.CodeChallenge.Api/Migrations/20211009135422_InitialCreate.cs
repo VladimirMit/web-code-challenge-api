@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.EntityFrameworkCore.Metadata;
 
-namespace Cognizant.CodeChallenge.Api.Migrations
+namespace Application.CodeChallenge.Api.Migrations
 {
     public partial class InitialCreate : Migration
     {

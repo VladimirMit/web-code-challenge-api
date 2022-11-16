@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Cognizant.CodeChallenge.Api</RootNamespace>
-    <AssemblyName>Cognizant.CodeChallenge.Api</AssemblyName>
+    <RootNamespace>Application.CodeChallenge.Api</RootNamespace>
+    <AssemblyName>Application.CodeChallenge.Api</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cognizant.CodeChallenge.Application\Cognizant.CodeChallenge.Application.csproj" />
-    <ProjectReference Include="..\Cognizant.CodeChallenge.Infrastructure.External\Cognizant.CodeChallenge.Infrastructure.External.csproj" />
-    <ProjectReference Include="..\Cognizant.CodeChallenge.Infrasturcture.Database\Cognizant.CodeChallenge.Infrastructure.Database.csproj" />
+    <ProjectReference Include="..\Cognizant.CodeChallenge.Application\Application.CodeChallenge.Application.csproj" />
+    <ProjectReference Include="..\Cognizant.CodeChallenge.Infrastructure.External\Application.CodeChallenge.Infrastructure.External.csproj" />
+    <ProjectReference Include="..\Cognizant.CodeChallenge.Infrasturcture.Database\Application.CodeChallenge.Infrastructure.Database.csproj" />
   </ItemGroup>
 
 </Project>

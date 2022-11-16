@@ -1,4 +1,4 @@
-﻿namespace Cognizant.CodeChallenge.Api.Models
+﻿namespace Application.CodeChallenge.Api.Models
 {
     public class CreateSolutionDto
     {
